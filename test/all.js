@@ -84,18 +84,18 @@ describe('JwtRedis', () => {
     });
 
     it('should sign a token with Redis expiration', async () => {
-      const token = await jwtRedis.sign({userId: '1'}, SECRET, {expiresKeyIn: 5000});
+      const token = await jwtRedis.sign({userId: '1'}, SECRET, {expiresKeyIn: 5});
       expect(token).to.exist;
       const decoded = await jwtRedis.decode(token);
-      expect(decoded.expk).to.be.equal(5000);
+      expect(decoded.expk).to.be.equal(5);
       expect(decoded).to.not.have.property('exp');
     });
 
     it('should sign a token with Redis expiration as string', async () => {
-      const token = await jwtRedis.sign({userId: '1'}, SECRET, {expiresKeyIn: '5 seconds'});
+      const token = await jwtRedis.sign({userId: '1'}, SECRET, {expiresKeyIn: '15 seconds'});
       expect(token).to.exist;
       const decoded = await jwtRedis.decode(token);
-      expect(decoded.expk).to.be.equal(5000);
+      expect(decoded.expk).to.be.equal(15);
       expect(decoded).to.not.have.property('exp');
     });
   });
@@ -136,14 +136,6 @@ describe('JwtRedis', () => {
     it('should remove the token from Redis', async () => {
       const token = await jwtRedis.sign({userId: '1'}, SECRET);
       await jwtRedis.destroy(token);
-    });
-  });
-
-  describe('#destroyByJti()', () => {
-    it('should remove the token from Redis using jti', async () => {
-      const token = await jwtRedis.sign({userId: '1'}, SECRET);
-      const decoded = await jwtRedis.decode(token);
-      await jwtRedis.destroyByJti(decoded.jti);
     });
   });
 
