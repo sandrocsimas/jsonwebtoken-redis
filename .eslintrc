@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "no-unused-expressions": ["off"],
+    "chai-friendly/no-unused-expressions": ["error"],
+    "sort-keys": ["off"],
+    "sort-imports": ["off"],
+    "space-before-function-paren": ["off"],
+    "no-shadow": ["off"],
+    "import/prefer-default-export": ["off"],
+    "arrow-body-style": ["off"],
+    "no-param-reassign": ["off"],
+    "no-underscore-dangle": ["off"],
+    "newline-per-chained-call": ["off"],
+    "padded-blocks": ["off"],
+    "default-case": ["off"],
+    "object-curly-newline": ["off"],
+    "func-names": ["off"],
+    "import/no-extraneous-dependencies": ["off"],
+    "prefer-arrow-callback": ["warn"],
+    "max-len": ["error", {"code": 999, "tabWidth": 2}],
+    "object-curly-spacing": ["error", "never"]
+  },
+  "parserOptions": {
+    "sourceType": "script"
+  },
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base"
+  ],
+  "plugins": [
+    "chai-friendly"
+  ]
+}
