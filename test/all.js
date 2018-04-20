@@ -26,7 +26,7 @@ describe('JwtRedis', () => {
       const token = await jwtRedis.sign({userId: '1'}, SECRET);
       expect(token).to.exist;
       const decoded = await jwtRedis.decode(token);
-      expect(decoded.jti).to.have.lengthOf(24);
+      expect(decoded.jti).to.have.lengthOf(36);
     });
 
     it('should sign a token with custom jti in options', async () => {
