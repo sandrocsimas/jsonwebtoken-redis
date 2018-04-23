@@ -5,12 +5,15 @@
 const JwtRedis = require('..');
 const {expect} = require('chai');
 const redis = require('redis-mock');
+const Promise = require('bluebird');
 
 // const PREFIX = 'session:';
 const SECRET = 'shhhhhh';
 
 const client = redis.createClient();
-const jwtRedis = new JwtRedis(client);
+const jwtRedis = new JwtRedis(client, {
+  promiseImpl: Promise,
+});
 
 // const getAsync = Promise.promisify(client.get, {context: client});
 
