@@ -1,7 +1,7 @@
 {
   "name": "jsonwebtoken-redis",
   "description": "Json Web Token Redis",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": {
     "name": "Ayro team",
     "email": "team@ayro.io",
